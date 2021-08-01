@@ -14,6 +14,7 @@ function click() {
   var charNums = "0123456789";
   var charSpecials = "!@#$%^&*()";
   var charPoolArray = [];
+  var truth = [];
   console.log("variables");
   var charPool;
   var charNumber;
@@ -22,37 +23,53 @@ function click() {
   var incNumbers;
   var IncSpecial;
 
-  var charNumber = prompt(
-    "How many characters would you like your password to be?"
-  );
+  do {
+    var charNumber = prompt(
+      "How many characters would you like your password to be? (Between 8 & 128 charaters)"
+    );
+  } while (charNumber < 8 || charNumber > 128);
+
   console.log(charNumber);
   // At least one must be confirmed
-  var incLower = confirm("Include lowercase?");
-  console.log(incLower);
-  var incUpper = confirm("Include uppercase?");
-  console.log(incUpper);
-  var incNumbers = confirm("Include numbers?");
-  console.log(incNumbers);
-  var IncSpecial = confirm("Include special characters?");
-  console.log(IncSpecial);
+  while (!truth.includes(true)) {
+    var incLower = confirm("Include lowercase?");
+    console.log(incLower);
+    var incUpper = confirm("Include uppercase?");
+    console.log(incUpper);
+    var incNumbers = confirm("Include numbers?");
+    console.log(incNumbers);
+    var IncSpecial = confirm("Include special characters?");
+    console.log(IncSpecial);
 
-  console.log("ifs"); // compile the characters to go in the pool. If true, add to the array charPoolArray
+    var truth = [incLower, incUpper, incNumbers, IncSpecial];
+    if (!truth.includes(true)) {
+      alert("Please choose a character type.");
+    }
+  }
+
+  // gather all the booleans from the questions above and put them in an array. If the array has no true values, send an alert of this and start over.
+
+  // compile the characters to go in the pool. If true, add to the array charPoolArray
   if (incLower) {
     charPoolArray.push(charLowers);
     console.log(charPoolArray);
   }
+
   if (incUpper) {
     charPoolArray.push(charUppers);
     console.log(charPoolArray);
   }
+
   if (incNumbers) {
     charPoolArray.push(charNums);
     console.log(charPoolArray);
   }
+
   if (IncSpecial) {
     charPoolArray.push(charSpecials);
     console.log(charPoolArray);
   }
+
   console.log("To String");
   // turn charPoolArray into a string
   var charPoolString = charPoolArray.toString();
