@@ -1,37 +1,26 @@
-// Assignment Code
 // generat ID selected and placed in variable generateBtn
 var generateBtn = document.querySelector("#generate");
-// establish strings of possible character sets
-var charLowers = "abcdefghijklmnopqrstuvwxyz";
-var charUppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var charNums = "0123456789";
-var charSpecials = "!@#$%^&*()";
-var charPoolArray = [];
-console.log("variables");
-var charPoolString = "";
-var charNumber;
-var incLower;
-var incUpper;
-var incNumbers;
-var IncSpecial;
-var randomStr;
 
-// Add event listener to generate button
 console.log("Listening?");
 generateBtn.addEventListener("click", click);
 console.log("Yup! Listening!");
-// Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-//   console.log("DECLARE write password");
-//   return;
-// }
 
 function click() {
   console.log("FUNCTION> click");
+
+  // establish strings of possible character sets
+  var charLowers = "abcdefghijklmnopqrstuvwxyz";
+  var charUppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var charNums = "0123456789";
+  var charSpecials = "!@#$%^&*()";
+  var charPoolArray = [];
+  console.log("variables");
+  var charPoolString = "";
+  var charNumber;
+  var incLower;
+  var incUpper;
+  var incNumbers;
+  var IncSpecial;
 
   var charNumber = prompt(
     "How many characters would you like your password to be?"
@@ -74,12 +63,39 @@ function click() {
   // split all the characters up and create a single array
   charPoolString = charPoolString.split("");
   console.log(charPoolString);
+  // charPoolString is a fucking array right now!!! Change this naming convention
 
-  console.log("RUN Generarate Password Function");
-  generatePassword();
   console.log("RUN Write PW Function");
   writePassword();
   console.log("end Script");
+
+  function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+
+    passwordText.value = password;
+    console.log("FUNCTION> write password");
+    return;
+  }
+
+  function generatePassword() {
+    // create an empty string to be populated later
+    var randomStr = "";
+    console.log(randomStr);
+    console.log(charNumber);
+
+    // create a random character and loop it as many times as the user input variable charNumber
+
+    // its not going into the for loop because chaNumber is undefined.
+    for (var i = 0; i < charNumber; i++) {
+      var randomNum = Math.floor(Math.random() * charPoolString.length);
+      randomStr += charPoolString[randomNum];
+
+      console.log("FUNCTION> genrate passwodrd IN FOUR LOOP");
+      console.log(randomStr);
+      return;
+    }
+  }
 
   return;
 }
@@ -105,25 +121,3 @@ function click() {
 // console.log(keyCode);
 // document.querySelector("#key").textContent = keyPressed;
 // document.querySelector("#code").textContent = keyCode;
-
-function generatePassword() {
-  // create an empty string to be populated later
-  var randomStr = "";
-  // create a random character and loop it as many times as the user input variable charNumber
-  for (var i = 0; i < charNumber; i++) {
-    var randomNum = Math.floor(Math.random() * charPoolString.length);
-    randomStr += charPoolString[randomNum];
-    console.log(randomStr);
-    console.log("FUNCTION> genrate passwodrd IN FOUR LOOP");
-    return;
-  }
-}
-
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-  console.log("FUNCTION> write password");
-  return;
-}
