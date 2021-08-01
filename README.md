@@ -21,4 +21,4 @@ Click the "Generate Password" button. You will begin to see prompts at the top a
 
 ## Credits
 
-## No collaborators. Only the demo from our TA Zac Stowell and undying support from W3 Schools (https://www.w3schools.com/).
+No collaborators. Only the demo from our TA Zac Stowell and undying support from W3 Schools (https://www.w3schools.com/).
