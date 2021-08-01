@@ -15,7 +15,7 @@ function click() {
   var charSpecials = "!@#$%^&*()";
   var charPoolArray = [];
   console.log("variables");
-  var charPoolString = "";
+  var charPool;
   var charNumber;
   var incLower;
   var incUpper;
@@ -55,15 +55,14 @@ function click() {
   }
   console.log("To String");
   // turn charPoolArray into a string
-  charPoolString = charPoolArray.toString();
+  var charPoolString = charPoolArray.toString();
   console.log(charPoolString);
   // remove all the commas
   charPoolString = charPoolString.replace(/,/g, "");
   console.log(charPoolString);
   // split all the characters up and create a single array
-  charPoolString = charPoolString.split("");
-  console.log(charPoolString);
-  // charPoolString is a fucking array right now!!! Change this naming convention
+  var charPool = charPoolString.split("");
+  console.log(charPool);
 
   console.log("RUN Write PW Function");
   writePassword();
@@ -81,20 +80,16 @@ function click() {
   function generatePassword() {
     // create an empty string to be populated later
     var randomStr = "";
-    console.log(randomStr);
-    console.log(charNumber);
 
     // create a random character and loop it as many times as the user input variable charNumber
 
     // its not going into the for loop because chaNumber is undefined.
     for (var i = 0; i < charNumber; i++) {
-      var randomNum = Math.floor(Math.random() * charPoolString.length);
-      randomStr += charPoolString[randomNum];
+      var randomNum = Math.floor(Math.random() * charPool.length);
 
-      console.log("FUNCTION> genrate passwodrd IN FOUR LOOP");
-      console.log(randomStr);
-      return;
+      randomStr += charPool[randomNum];
     }
+    return randomStr;
   }
 
   return;
