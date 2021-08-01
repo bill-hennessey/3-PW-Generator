@@ -38,13 +38,12 @@ function click() {
   // the truth array contains all boolean values for the following questions. If the engine doesn not find a single "true" in the array, these questions will be asked again.
   while (!truth.includes(true)) {
     var incLower = confirm("Include lowercase?");
-    console.log(incLower);
+
     var incUpper = confirm("Include uppercase?");
-    console.log(incUpper);
+
     var incNumbers = confirm("Include numbers?");
-    console.log(incNumbers);
+
     var IncSpecial = confirm("Include special characters?");
-    console.log(IncSpecial);
 
     var truth = [incLower, incUpper, incNumbers, IncSpecial];
     if (!truth.includes(true)) {
