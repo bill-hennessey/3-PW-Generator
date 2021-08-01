@@ -46,6 +46,7 @@ function click() {
     var IncSpecial = confirm("Include special characters?");
 
     var truth = [incLower, incUpper, incNumbers, IncSpecial];
+
     if (!truth.includes(true)) {
       alert("Please choose a character type.");
     }
